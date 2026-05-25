@@ -10,6 +10,8 @@ Saves alive domains
 git clone https://github.com/aryahmpillai/alive-checker.git
 
 cd alive-checker
+
+
 pip install -r requirements.txt
 
 ## Usage
