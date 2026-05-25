@@ -32,6 +32,7 @@ def alive_checker(site):
         headers = {
             "User-Agent": "Mozilla/5.0"
         }
+        site = "https://" + site
 
         r = requests.get(site, headers=headers, timeout=3)
 
