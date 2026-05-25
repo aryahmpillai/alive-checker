@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 
-print(r"""
+from colorama import Fore, Style, init
+import requests
+
+# Initialize colors
+init(autoreset=True)
+
+# Banner
+print(Fore.CYAN + r"""
 
    
   /$$$$$$  /$$       /$$$$$$ /$$    /$$ /$$$$$$$$        /$$$$$$  /$$   /$$ /$$$$$$$$  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$$$$$$ 
@@ -11,14 +18,8 @@ print(r"""
 | $$  | $$| $$        | $$    \  $$$/  | $$            | $$    $$| $$  | $$| $$      | $$    $$| $$\  $$ | $$      | $$  \ $$
 | $$  | $$| $$$$$$$$ /$$$$$$   \  $/   | $$$$$$$$      |  $$$$$$/| $$  | $$| $$$$$$$$|  $$$$$$/| $$ \  $$| $$$$$$$$| $$  | $$
 |__/  |__/|________/|______/    \_/    |________/       \______/ |__/  |__/|________/ \______/ |__/  \__/|________/|__/  |__/
-                                                                                                                             
-                                                                                                                             
-                                                                                                                                      
 
-""")
-
-
-import requests
+""" + Style.RESET_ALL)
 
 alive_count = 0
 
@@ -32,6 +33,7 @@ def alive_checker(site):
         headers = {
             "User-Agent": "Mozilla/5.0"
         }
+
         site = "https://" + site
 
         r = requests.get(site, headers=headers, timeout=3)
@@ -40,7 +42,10 @@ def alive_checker(site):
 
             alive_count += 1
 
-            print(f"[200] ---> {site}")
+            print(
+                f"{Fore.GREEN}[200]{Style.RESET_ALL} ---> "
+                f"{Fore.CYAN}{site}"
+            )
 
             with open("alive.txt", "a") as f:
 
@@ -50,7 +55,9 @@ def alive_checker(site):
         pass
 
 
-target_name = input("ENTER FILE : ").strip()
+target_name = input(
+    Fore.YELLOW + "ENTER FILE : " + Style.RESET_ALL
+).strip()
 
 
 with open(target_name) as arya:
@@ -60,4 +67,7 @@ with open(target_name) as arya:
         alive_checker(line.strip())
 
 
-print(f"\nTOTAL ALIVE HOSTS : {alive_count}")
+print(
+    Fore.YELLOW +
+    f"\nTOTAL ALIVE HOSTS : {alive_count}"
+)
