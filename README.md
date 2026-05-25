@@ -14,6 +14,9 @@ cd alive-checker
 
 pip install -r requirements.txt
 
+## For Globally run
+chmod +x alive-checker
+
 ## Usage
-python scanner.py
+alive-checker
  
