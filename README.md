@@ -23,5 +23,4 @@ python3 alive-checker -h
 chmod +x alive-checker
 
 ## Usage
-alive-checker
- 
+python3 alive-checker -l subdomains.txt 
