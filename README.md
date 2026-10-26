@@ -8,11 +8,11 @@ Saves alive domains
 
 ## Installation
 git clone https://github.com/aryahmpillai/alive-checker.git
-
 cd alive-checker
-
-
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+python3 alive-checker -h
 
 ## For Globally run
 chmod +x alive-checker
